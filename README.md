@@ -55,3 +55,20 @@ LeetCode SQL Queries
   - First lead give the num 1 row ahead
   - Second lead give the num 2 row ahead.
   - Select query find distinct num from cte where nu is equal to next_num and next2_num.
+
+
+# 4 - Customers Who Bought All Products: 
+  - Customer table with column name customer_id and product_key.
+  - Product table with column name product_key.
+  - Write a solution to report the customer ids from the Customer table that bought all the products in the Product table.
+
+# Solution:
+  - SELECT customer_id FROM customer
+  - GROUP BY customer_id
+  - HAVING COUNT(DISTINCT product_key)= (SELECT COUNT(product_key) FROM product);
+
+# Explanation:
+  - Select customer_id from customer table, group by customer_id.
+  - Count all distinct product_key in each customer_id using having clause.
+  - Subquery, count product_key in product table
+  - Compare Having clause with subquery that which customer_id have equal product_key as in product table.
